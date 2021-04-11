@@ -19,6 +19,14 @@ module.exports = {
             console.log(error)
             
         }
+    },
+    deleteTodo: async (req, res)=>{
+        try {
+            await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            res.json('deleted it')
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }

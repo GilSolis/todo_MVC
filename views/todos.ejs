@@ -5,13 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Todos up in here</h1>
 
-    <form action="/todos/createTodo" method='POST'>
+    <form action="/todos/createTodo" method='POST' autocomplete="off">
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
     </form>
+
+    <ul>
+        <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <button class='del'> Delete </button>
+            </li>
+        <% }) %>    
+        </ul>
+
+        <h2>Things left to do: <%= left %></h2>
+
+        <script src="js/main.js"></script>
 </body>
 </html>

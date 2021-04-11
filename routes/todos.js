@@ -7,4 +7,6 @@ router.get('/', todosController.getTodos)
 
 router.post('/createTodo', todosController.createTodo)
 
+router.delete('/deleteTodo', todosController.deleteTodo)
+
 module.exports = router
