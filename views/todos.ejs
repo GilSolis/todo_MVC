@@ -5,26 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos up in here</h1>
+    <h1>Tasks to do:</h1>
 
     <form action="/todos/createTodo" method='POST' autocomplete="off">
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <input class="submit" type="submit">
     </form>
 
     <ul>
         <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <button class='del'> Delete </button>
+                <a href="" class='del'><span class="fa fa-trash-alt"></span></a>
+                <!-- <button class='del'> Delete </button> -->
+                
             </li>
         <% }) %>    
         </ul>
 
-        <h2>Things left to do: <%= left %></h2>
+        <h2>Tasks left to do: <%= left %></h2>
 
         <script src="js/main.js"></script>
 </body>
